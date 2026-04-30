@@ -49,16 +49,20 @@ export default function Home() {
                 Stop paying off your landlord&apos;s mortgage.
               </h1>
               <p className="mt-5 max-w-xl text-lg text-muted sm:text-xl">
-                Every month you rent, the price of owning goes up — and your
-                payment goes nowhere. There&apos;s a Florida home in your
-                budget. Let&apos;s find it.
+                The average Florida renter will hand{" "}
+                <span className="font-semibold text-slate-900">
+                  $22,000+
+                </span>{" "}
+                to a landlord this year and own nothing on Dec 31. There&apos;s
+                a Florida home in your budget. Let&apos;s find it before next
+                year&apos;s rent hike.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Link
                   href="#qualify"
                   className="inline-flex items-center justify-center rounded-xl bg-brand px-6 py-4 text-base font-semibold text-white shadow-sm transition hover:bg-brand-strong"
                 >
-                  See What You Qualify For
+                  See my real payment
                 </Link>
                 <Link
                   href="#rent-trap"
@@ -68,7 +72,8 @@ export default function Home() {
                 </Link>
               </div>
               <p className="mt-4 text-sm text-muted">
-                Under 60 seconds. No credit pull. No obligation.
+                Under 60 seconds. No credit pull. No obligation. A real person
+                calls you — not a bot.
               </p>
             </div>
 
@@ -421,6 +426,50 @@ export default function Home() {
           </div>
         </section>
 
+        {/* OBJECTIONS */}
+        <section className="border-t border-border bg-white">
+          <div className="mx-auto max-w-4xl px-5 py-20">
+            <div className="mx-auto max-w-2xl text-center">
+              <span className="text-xs font-semibold uppercase tracking-wider text-brand">
+                Straight Answers
+              </span>
+              <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+                The questions most people ask before they pick up the phone.
+              </h2>
+              <p className="mt-4 text-lg text-muted">
+                No fine print games. Here&apos;s the honest version.
+              </p>
+            </div>
+
+            <div className="mt-12 grid gap-4 md:grid-cols-2">
+              <Faq
+                q="Is this a manufactured home park trap?"
+                a="No. We work with homes on owned land and homes in resident-owned communities — both real ownership, not month-to-month lot rentals that can hike on you. We&apos;ll tell you which is which on every home we send you."
+              />
+              <Faq
+                q="What does the monthly payment actually include?"
+                a="Loan principal + interest, property taxes, insurance, and any community fees if applicable. The numbers we quote are all-in. If a lender quotes you a teaser without taxes baked in, walk away."
+              />
+              <Faq
+                q="What credit score do I need?"
+                a="Most of our buyers close in the 580–680 range. We have lender partners who work with thin files, past medical collections, and self-employed income. There&apos;s no credit pull to find out where you stand."
+              />
+              <Faq
+                q="What if I only have $3K–$5K saved?"
+                a="That&apos;s the most common starting point we see. Down payments on these homes typically run 3.5–10%, and there are programs that fold closing costs into the loan. Tell us what you have — we&apos;ll tell you what&apos;s realistic."
+              />
+              <Faq
+                q="What&apos;s the catch?"
+                a="The honest catch: inventory in the $50K–$150K range is genuinely tight, so timelines can be 60–120 days from first call to keys. If you need to be in something next week, this isn&apos;t that. If you&apos;re willing to plan a season ahead, this works."
+              />
+              <Faq
+                q="What happens after I submit the form?"
+                a="A licensed Florida ownership specialist calls you (one human, not a call center) within one business day. You talk for 10–15 minutes. If it&apos;s a fit, we send real homes in your range. If it&apos;s not, we say so."
+              />
+            </div>
+          </div>
+        </section>
+
         {/* QUALIFICATION FUNNEL */}
         <section
           id="qualify"
@@ -468,17 +517,22 @@ export default function Home() {
               Every month you wait costs you twice.
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-base text-muted">
-              Florida inventory in the $50K–$150K range moves quickly, and
-              prices drift up alongside rent. Another year of waiting is
-              another year of payments to a landlord — and homes that were in
-              reach today often aren&apos;t next spring.
+              One: another rent check that builds zero equity. Two: home prices
+              and rates in this band have drifted up every year for a decade.
+              The $89K home today is the $96K home next spring — and your rent
+              renewal lands before that.
             </p>
+            <div className="mx-auto mt-8 grid max-w-xl gap-3 text-left sm:grid-cols-3">
+              <UrgencyStat value="~$1,850" label="Avg. rent gone next month" />
+              <UrgencyStat value="60–120 days" label="Typical close timeline" />
+              <UrgencyStat value="1 call" label="To know if it&apos;s a fit" />
+            </div>
             <div className="mt-8 flex flex-col items-center gap-3">
               <Link
                 href="#qualify"
                 className="inline-flex items-center justify-center rounded-xl bg-brand px-7 py-4 text-base font-semibold text-white shadow-sm transition hover:bg-brand-strong"
               >
-                See What You Qualify For
+                See my real payment
               </Link>
               <p className="text-xs text-muted">
                 Limited inventory. Real homes. No fake countdown.
@@ -833,6 +887,47 @@ function Story({
         <span className="font-semibold text-slate-900">{name}</span> · {place}
       </figcaption>
     </figure>
+  );
+}
+
+function Faq({ q, a }: { q: string; a: string }) {
+  return (
+    <details className="group rounded-2xl border border-border bg-surface p-5 open:bg-white open:shadow-sm">
+      <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-semibold tracking-tight text-slate-900">
+        <span dangerouslySetInnerHTML={{ __html: q }} />
+        <span className="ml-2 inline-flex h-7 w-7 flex-none items-center justify-center rounded-full border border-border bg-white text-brand-strong transition group-open:rotate-45">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="h-4 w-4"
+            aria-hidden="true"
+          >
+            <path d="M12 5v14" />
+            <path d="M5 12h14" />
+          </svg>
+        </span>
+      </summary>
+      <p
+        className="mt-3 text-base leading-relaxed text-slate-700"
+        dangerouslySetInnerHTML={{ __html: a }}
+      />
+    </details>
+  );
+}
+
+function UrgencyStat({ value, label }: { value: string; label: string }) {
+  return (
+    <div className="rounded-2xl border border-border bg-white p-4">
+      <p className="text-xl font-bold tracking-tight text-slate-900">{value}</p>
+      <p
+        className="mt-1 text-xs text-muted"
+        dangerouslySetInnerHTML={{ __html: label }}
+      />
+    </div>
   );
 }
 
