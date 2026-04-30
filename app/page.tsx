@@ -534,9 +534,6 @@ export default function Home() {
               >
                 See my real payment
               </Link>
-              <p className="text-xs text-muted">
-                Limited inventory. Real homes. No fake countdown.
-              </p>
             </div>
           </div>
         </section>
