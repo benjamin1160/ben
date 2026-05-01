@@ -1,5 +1,5 @@
 import Link from "next/link";
-import QualifyForm from "../QualifyForm";
+import QualifyForm from "../../QualifyForm";
 
 export default function Home() {
   return (
