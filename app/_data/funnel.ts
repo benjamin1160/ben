@@ -87,7 +87,7 @@ export const variations: Variation[] = [
     trigger: "Lower monthly payment",
     buying: "Escape from rent",
     state: "pain",
-    liveStyles: ["hybrid"],
+    liveStyles: ["hybrid", "quiz"],
   },
   {
     slug: "denied-everywhere",
