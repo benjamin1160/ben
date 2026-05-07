@@ -1,196 +1,10 @@
 import Link from "next/link";
-
-type PageStyle = {
-  slug: string;
-  name: string;
-  short: string;
-  purpose: string;
-  group: "entry" | "midfunnel" | "terminal";
-};
-
-type Variation = {
-  slug: string;
-  number: number;
-  name: string;
-  scenario: string[];
-  psychology: string[];
-  trigger: string;
-  buying: string;
-  state: "pain" | "aspiration";
-  liveStyles: string[];
-};
-
-const pageStyles: PageStyle[] = [
-  {
-    slug: "quiz",
-    name: "Quiz",
-    short: "Multi-step qualifier",
-    purpose: "1 question per screen. Pre-qualifies and engages.",
-    group: "entry",
-  },
-  {
-    slug: "squeeze",
-    name: "Squeeze",
-    short: "3-field lead capture",
-    purpose: "Single screen. Headline + 3 fields. Speed over depth.",
-    group: "entry",
-  },
-  {
-    slug: "vsl",
-    name: "VSL",
-    short: "Video sales letter",
-    purpose: "2–5 min video at top, form below. Builds trust.",
-    group: "entry",
-  },
-  {
-    slug: "hybrid",
-    name: "Hybrid",
-    short: "Short-form sales + form",
-    purpose: "Scrollable but tight. Education + conversion.",
-    group: "entry",
-  },
-  {
-    slug: "bridge",
-    name: "Bridge",
-    short: "Click-through warm-up",
-    purpose: "Pre-frames the offer. No form, just one CTA.",
-    group: "entry",
-  },
-  {
-    slug: "application",
-    name: "Application",
-    short: "High-intent form",
-    purpose: "Multi-field form. For warm traffic only.",
-    group: "midfunnel",
-  },
-  {
-    slug: "thank-you",
-    name: "Thank You",
-    short: "Confirmation + next steps",
-    purpose: "Sets expectations. Massively boosts contact rate.",
-    group: "terminal",
-  },
-  {
-    slug: "booking",
-    name: "Booking",
-    short: "Calendar embed",
-    purpose: "Convert hot leads into appointments.",
-    group: "terminal",
-  },
-];
-
-const variations: Variation[] = [
-  {
-    slug: "sick-of-renting",
-    number: 1,
-    name: "Sick of Renting",
-    scenario: ["Renting, rising costs", "Moderate income, possible credit issues"],
-    psychology: ["Feels stuck, wants control"],
-    trigger: "Lower monthly payment",
-    buying: "Escape from rent",
-    state: "pain",
-    liveStyles: ["hybrid"],
-  },
-  {
-    slug: "denied-everywhere",
-    number: 2,
-    name: "Denied Everywhere",
-    scenario: ["Rejected by traditional lenders", "Credit issues, has income"],
-    psychology: ["Frustrated, skeptical, guarded", "Expects rejection"],
-    trigger: "A path that doesn't end in 'no'",
-    buying: "Second chance",
-    state: "pain",
-    liveStyles: [],
-  },
-  {
-    slug: "i-own-land",
-    number: 3,
-    name: "I Own Land — Now What?",
-    scenario: ["Has land already", "Doesn't understand next steps"],
-    psychology: ["Confused, overwhelmed", "Wants direction"],
-    trigger: "A clear next move",
-    buying: "Clarity + execution",
-    state: "aspiration",
-    liveStyles: [],
-  },
-  {
-    slug: "land-and-home",
-    number: 4,
-    name: "Land + Home Package",
-    scenario: ["Wants land and home together", "Early research phase"],
-    psychology: ["Overwhelmed, cautious", "Needs guidance"],
-    trigger: "Step-by-step plan",
-    buying: "Clear step-by-step plan",
-    state: "aspiration",
-    liveStyles: [],
-  },
-  {
-    slug: "family-home",
-    number: 5,
-    name: "Working-Class Family",
-    scenario: ["Crowded living situation", "Kids involved"],
-    psychology: ["Emotional, future-focused", "Wants stability and pride"],
-    trigger: "A better life for the kids",
-    buying: "Better life for family",
-    state: "aspiration",
-    liveStyles: [],
-  },
-  {
-    slug: "retiree-downsize",
-    number: 6,
-    name: "Retiree / Downsizer",
-    scenario: ["Selling home or fixed income", "Wants simpler living"],
-    psychology: ["Risk-averse, values comfort", "Avoids complexity"],
-    trigger: "Simplicity, no surprises",
-    buying: "Simplicity + security",
-    state: "aspiration",
-    liveStyles: [],
-  },
-  {
-    slug: "need-it-now",
-    number: 7,
-    name: "Urgent / Time-Pressured",
-    scenario: ["Divorce, eviction, relocation"],
-    psychology: ["Stressed, decisive", "Wants speed and certainty"],
-    trigger: "Move-in date, fast",
-    buying: "Immediate solution",
-    state: "pain",
-    liveStyles: [],
-  },
-  {
-    slug: "investor",
-    number: 8,
-    name: "Investor",
-    scenario: ["Rental or flip strategy"],
-    psychology: ["Logical, ROI-driven", "No emotion"],
-    trigger: "Cap rate / cash-on-cash",
-    buying: "Cash flow / returns",
-    state: "pain",
-    liveStyles: [],
-  },
-  {
-    slug: "skeptical-buyer",
-    number: 9,
-    name: "Skeptical Buyer",
-    scenario: ["Burned before or distrustful"],
-    psychology: ["Guarded, slow decision-maker", "Needs transparency"],
-    trigger: "Receipts, references, no fluff",
-    buying: "Trust",
-    state: "aspiration",
-    liveStyles: [],
-  },
-  {
-    slug: "first-generation",
-    number: 10,
-    name: "Immigrant / First-Gen",
-    scenario: ["First-time U.S. property buyer"],
-    psychology: ["Aspirational, family-driven", "Needs guidance"],
-    trigger: "The dream, made concrete",
-    buying: "Ownership / American dream",
-    state: "aspiration",
-    liveStyles: [],
-  },
-];
+import {
+  pageStyles,
+  variations,
+  type PageStyle,
+  type Variation,
+} from "./_data/funnel";
 
 export default function Variations() {
   const totalCombos = variations.length * pageStyles.length;
@@ -397,8 +211,12 @@ function StyleChip({
   live: boolean;
 }) {
   const href = `/${buyerSlug}/${style.slug}`;
-  const inner = (
-    <>
+  const className = live
+    ? "group flex flex-col rounded-xl border border-brand/30 bg-brand/5 px-3 py-2.5 transition hover:border-brand/60 hover:bg-brand/10"
+    : "group flex flex-col rounded-xl border border-dashed border-border bg-surface px-3 py-2.5 opacity-70 transition hover:border-slate-400 hover:opacity-100";
+
+  return (
+    <Link href={href} className={className}>
       <div className="flex items-center justify-between">
         <span className="text-sm font-semibold tracking-tight">
           {style.name}
@@ -410,30 +228,13 @@ function StyleChip({
           </span>
         ) : (
           <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-400">
-            —
+            Preview
           </span>
         )}
       </div>
       <p className="mt-0.5 font-mono text-[11px] text-muted">{href}</p>
       <p className="mt-1 text-xs text-muted">{style.short}</p>
-    </>
-  );
-
-  if (live) {
-    return (
-      <Link
-        href={href}
-        className="group flex flex-col rounded-xl border border-brand/30 bg-brand/5 px-3 py-2.5 transition hover:border-brand/60 hover:bg-brand/10"
-      >
-        {inner}
-      </Link>
-    );
-  }
-
-  return (
-    <div className="flex flex-col rounded-xl border border-dashed border-border bg-surface px-3 py-2.5 opacity-70">
-      {inner}
-    </div>
+    </Link>
   );
 }
 
