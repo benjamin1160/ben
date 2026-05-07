@@ -64,11 +64,16 @@ export default function Variations() {
             </p>
           </div>
 
-          <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <p className="mt-4 text-xs text-muted">
+            Reference only — pick a style, then click a buyer scenario below to
+            view that combination.
+          </p>
+
+          <dl className="mt-6 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-4">
             {pageStyles.map((s) => (
               <StyleCard key={s.slug} s={s} />
             ))}
-          </div>
+          </dl>
         </section>
 
         {/* MATRIX */}
@@ -113,16 +118,18 @@ function StyleCard({ s }: { s: PageStyle }) {
         ? "Mid-funnel"
         : "Terminal";
   return (
-    <div className="flex flex-col rounded-2xl border border-border bg-surface p-5">
-      <div className="flex items-center justify-between">
-        <span className="font-mono text-xs text-muted">/{s.slug}</span>
-        <span className="rounded-full bg-white px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-muted">
+    <div className="border-t border-border pt-4">
+      <div className="flex items-baseline gap-2">
+        <dt className="text-base font-semibold tracking-tight text-slate-900">
+          {s.name}
+        </dt>
+        <span className="text-[10px] font-semibold uppercase tracking-wider text-muted">
           {groupLabel}
         </span>
       </div>
-      <h3 className="mt-2 text-lg font-semibold tracking-tight">{s.name}</h3>
-      <p className="text-sm font-medium text-slate-700">{s.short}</p>
-      <p className="mt-2 text-sm text-muted">{s.purpose}</p>
+      <p className="mt-1 font-mono text-[11px] text-muted">/{s.slug}</p>
+      <dd className="mt-2 text-sm text-slate-700">{s.short}</dd>
+      <dd className="mt-1 text-sm text-muted">{s.purpose}</dd>
     </div>
   );
 }
@@ -212,8 +219,8 @@ function StyleChip({
 }) {
   const href = `/${buyerSlug}/${style.slug}`;
   const className = live
-    ? "group flex flex-col rounded-xl border border-brand/30 bg-brand/5 px-3 py-2.5 transition hover:border-brand/60 hover:bg-brand/10"
-    : "group flex flex-col rounded-xl border border-dashed border-border bg-surface px-3 py-2.5 opacity-70 transition hover:border-slate-400 hover:opacity-100";
+    ? "group flex flex-col rounded-xl border border-brand/40 bg-brand/5 px-3 py-2.5 shadow-sm transition hover:-translate-y-0.5 hover:border-brand hover:bg-brand/10 hover:shadow-md"
+    : "group flex flex-col rounded-xl border border-dashed border-border bg-white px-3 py-2.5 transition hover:-translate-y-0.5 hover:border-solid hover:border-slate-400 hover:bg-surface hover:shadow-sm";
 
   return (
     <Link href={href} className={className}>
@@ -233,7 +240,15 @@ function StyleChip({
         )}
       </div>
       <p className="mt-0.5 font-mono text-[11px] text-muted">{href}</p>
-      <p className="mt-1 text-xs text-muted">{style.short}</p>
+      <div className="mt-1 flex items-center justify-between gap-2">
+        <p className="text-xs text-muted">{style.short}</p>
+        <span
+          aria-hidden
+          className="text-sm text-muted transition group-hover:translate-x-0.5 group-hover:text-slate-900"
+        >
+          →
+        </span>
+      </div>
     </Link>
   );
 }
