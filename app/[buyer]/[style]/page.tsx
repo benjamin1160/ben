@@ -6,11 +6,32 @@ import {
   pageStyles,
   variations,
 } from "../../_data/funnel";
+import QuizFunnel from "../../_templates/QuizFunnel";
+import sickOfRentingQuiz from "../../_data/copy/sick-of-renting/quiz";
 
 export async function generateStaticParams() {
   return variations.flatMap((v) =>
     pageStyles.map((s) => ({ buyer: v.slug, style: s.slug })),
   );
+}
+
+export async function generateMetadata({
+  params,
+}: PageProps<"/[buyer]/[style]">) {
+  const { buyer, style } = await params;
+  if (buyer === "sick-of-renting" && style === "quiz") {
+    return {
+      title: sickOfRentingQuiz.meta.title,
+      description: sickOfRentingQuiz.meta.description,
+    };
+  }
+  const variation = findVariation(buyer);
+  const pageStyle = findPageStyle(style);
+  if (!variation || !pageStyle) return {};
+  return {
+    title: `${variation.name} · ${pageStyle.name} (preview)`,
+    description: pageStyle.purpose,
+  };
 }
 
 export default async function PlaceholderPage({
@@ -21,6 +42,10 @@ export default async function PlaceholderPage({
   const pageStyle = findPageStyle(style);
 
   if (!variation || !pageStyle) notFound();
+
+  if (buyer === "sick-of-renting" && style === "quiz") {
+    return <QuizFunnel copy={sickOfRentingQuiz} />;
+  }
 
   const groupLabel =
     pageStyle.group === "entry"
