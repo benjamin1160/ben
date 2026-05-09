@@ -31,7 +31,7 @@ export default function SickOfRentingSqueeze() {
                 <path d="M5 10v10h14V10" />
               </svg>
             </span>
-            <span className="text-sm font-semibold tracking-tight">
+            <span className="theme-display text-sm tracking-tight">
               Florida Home Path
             </span>
           </div>
@@ -52,7 +52,7 @@ export default function SickOfRentingSqueeze() {
                 <span className="h-2 w-2 rounded-full bg-brand" />
                 For renters tired of the rent hike letter
               </span>
-              <h1 className="mt-5 text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl">
+              <h1 className="theme-display mt-5 text-5xl leading-[1.05] text-foreground sm:text-6xl md:text-7xl">
                 Your rent could be a mortgage.
               </h1>
               <p className="mt-5 max-w-xl text-lg text-muted sm:text-xl">
@@ -152,9 +152,7 @@ function Avatar({ className }: { className: string }) {
 function Proof({ stat, label }: { stat: string; label: string }) {
   return (
     <div className="theme-card p-5">
-      <p className="text-2xl font-bold tracking-tight text-brand-strong">
-        {stat}
-      </p>
+      <p className="theme-display text-3xl text-brand-strong">{stat}</p>
       <p
         className="mt-1 text-sm text-foreground/80"
         dangerouslySetInnerHTML={{ __html: label }}
