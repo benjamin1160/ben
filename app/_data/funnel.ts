@@ -98,7 +98,7 @@ export const variations: Variation[] = [
       "Site-built FL homes are out of reach at current prices",
     ],
     psychology: [
-      "Defeated by sticker shock and bidding wars",
+      "Defeated by sticker shock and unaffordable payments",
       "Skeptical of anything labeled “affordable”",
     ],
     trigger: "A real Florida home at a price that actually works",

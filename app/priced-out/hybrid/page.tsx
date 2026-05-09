@@ -56,10 +56,10 @@ export default function PricedOutHybrid() {
               <p className="mt-5 max-w-xl text-lg text-muted sm:text-xl">
                 The bank says yes. The market says no. Median Florida
                 site-built homes are now north of{" "}
-                <span className="font-semibold text-slate-900">$385K</span> —
-                and every house you actually want goes 7% over asking, in
-                cash, in three days. There&apos;s an honest second answer
-                most pre-approved buyers haven&apos;t heard.
+                <span className="font-semibold text-slate-900">$385K</span>,
+                and the all-in payment on that math doesn&apos;t work for
+                most pre-approved buyers either. There&apos;s an honest
+                second answer most of them haven&apos;t heard.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Link
@@ -325,8 +325,8 @@ export default function PricedOutHybrid() {
 
             <div className="mt-12 grid gap-6 md:grid-cols-3">
               <Benefit
-                title="A price that&apos;s not a bidding war"
-                body="No 14 offers, no escalation clauses, no waiving inspection. The list price is the price. If it works for you, it&rsquo;s yours."
+                title="A price you can actually afford"
+                body="The list price is the price. No surprise add-ons, no &ldquo;final&rdquo; numbers that climb $40K once you&rsquo;re in conversation. If it works for you on paper, it&rsquo;ll still work at closing."
                 icon={<TagIcon />}
               />
               <Benefit
@@ -397,7 +397,7 @@ export default function PricedOutHybrid() {
 
             <div className="mt-12 grid gap-6 md:grid-cols-2">
               <Story
-                quote="We were pre-approved for $310K. Every house we liked went $40K over asking the same week. We finally said screw it, bought a 3/2 manufactured for $94K, and our payment is $760 instead of $2,400. We&apos;re putting the difference into a real down payment for later."
+                quote="We were pre-approved for $310K, but the actual payment was suffocating — $2,400 a month before food, daycare, anything. We finally bought a 3/2 manufactured for $94K, and our payment is $760. We&apos;re putting the difference into savings for later."
                 name="Priya & Tom"
                 place="Polk County, FL"
               />
