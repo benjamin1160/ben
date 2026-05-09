@@ -29,7 +29,7 @@ export default function SqueezeForm() {
 
   if (submitted) {
     return (
-      <div className="rounded-2xl border border-border bg-white p-8 shadow-sm">
+      <div className="rounded-2xl border border-border bg-card p-8 shadow-sm">
         <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand/10 text-brand">
           <svg
             viewBox="0 0 24 24"
@@ -58,7 +58,7 @@ export default function SqueezeForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="rounded-2xl border border-border bg-white p-6 shadow-sm sm:p-8"
+      className="rounded-2xl border border-border bg-card p-6 shadow-sm sm:p-8"
       aria-label="See what you qualify for"
     >
       <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
@@ -70,19 +70,21 @@ export default function SqueezeForm() {
 
       <div className="mt-6 grid gap-3">
         <label className="block">
-          <span className="text-sm font-medium text-slate-700">First name</span>
+          <span className="text-sm font-medium text-foreground/80">
+            First name
+          </span>
           <input
             type="text"
             required
             autoComplete="given-name"
             value={data.name}
             onChange={(e) => update("name", e.target.value)}
-            className="mt-1 w-full rounded-xl border border-border bg-white px-4 py-3 text-base outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20"
+            className="mt-1 w-full rounded-xl border border-border bg-card px-4 py-3 text-base text-foreground outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20"
             placeholder="Alex"
           />
         </label>
         <label className="block">
-          <span className="text-sm font-medium text-slate-700">
+          <span className="text-sm font-medium text-foreground/80">
             Mobile number
           </span>
           <input
@@ -91,19 +93,19 @@ export default function SqueezeForm() {
             autoComplete="tel"
             value={data.phone}
             onChange={(e) => update("phone", e.target.value)}
-            className="mt-1 w-full rounded-xl border border-border bg-white px-4 py-3 text-base outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20"
+            className="mt-1 w-full rounded-xl border border-border bg-card px-4 py-3 text-base text-foreground outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20"
             placeholder="(555) 555-0123"
           />
         </label>
         <label className="block">
-          <span className="text-sm font-medium text-slate-700">
+          <span className="text-sm font-medium text-foreground/80">
             What you pay in rent now
           </span>
           <select
             required
             value={data.rent}
             onChange={(e) => update("rent", e.target.value)}
-            className="mt-1 w-full rounded-xl border border-border bg-white px-4 py-3 text-base outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20"
+            className="mt-1 w-full rounded-xl border border-border bg-card px-4 py-3 text-base text-foreground outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20"
           >
             <option value="" disabled>
               Choose a range…
