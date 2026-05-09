@@ -90,15 +90,21 @@ export const variations: Variation[] = [
     liveStyles: ["hybrid", "quiz", "squeeze", "vsl", "bridge", "application", "thank-you", "booking"],
   },
   {
-    slug: "denied-everywhere",
+    slug: "priced-out",
     number: 2,
-    name: "Denied Everywhere",
-    scenario: ["Rejected by traditional lenders", "Credit issues, has income"],
-    psychology: ["Frustrated, skeptical, guarded", "Expects rejection"],
-    trigger: "A path that doesn't end in 'no'",
-    buying: "Second chance",
+    name: "Priced Out of Traditional",
+    scenario: [
+      "Has stable income, often pre-approved",
+      "Site-built FL homes are out of reach at current prices",
+    ],
+    psychology: [
+      "Defeated by sticker shock and bidding wars",
+      "Skeptical of anything labeled “affordable”",
+    ],
+    trigger: "A real Florida home at a price that actually works",
+    buying: "The next-best-thing — affordable ownership, not a starter myth",
     state: "pain",
-    liveStyles: [],
+    liveStyles: ["hybrid"],
   },
   {
     slug: "i-own-land",
