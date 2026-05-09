@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function SickOfRentingApplication() {
   return (
-    <div className="flex flex-1 flex-col bg-white text-slate-900">
+    <div className="sunset theme-canvas flex flex-1 flex-col">
       <header className="border-b border-border bg-white/90 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3">
           <div className="flex items-center gap-2">

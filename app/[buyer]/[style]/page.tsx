@@ -66,7 +66,7 @@ export default async function PlaceholderPage({
         : "Terminal";
 
   return (
-    <div className="flex flex-1 flex-col bg-white text-slate-900">
+    <div className="sunset theme-canvas flex flex-1 flex-col">
       <main className="mx-auto w-full max-w-3xl px-5 py-16 md:py-24">
         <Link
           href="/"
