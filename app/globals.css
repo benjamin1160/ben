@@ -1,6 +1,37 @@
 @import "tailwindcss";
 
 :root {
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --brand: #0f766e;
+  --brand-strong: #0d5b55;
+  --accent: #f59e0b;
+  --muted: #475569;
+  --surface: #f8fafc;
+  --border: #e2e8f0;
+
+  --radius-sm: 0.75rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+  --radius-pill: 9999px;
+
+  --shadow-card: 0 1px 2px rgba(15, 23, 42, 0.06),
+    0 12px 30px -16px rgba(15, 23, 42, 0.18);
+  --shadow-cta: 0 8px 20px -10px rgba(15, 118, 110, 0.55);
+  --shadow-cta-hover: 0 14px 28px -10px rgba(15, 118, 110, 0.7);
+
+  --bg-image: radial-gradient(
+    ellipse at top,
+    rgba(15, 118, 110, 0.07),
+    transparent 60%
+  );
+
+  --font-display: var(--font-geist-sans);
+}
+
+/* Scoped Sunset palette — opt in by adding `sunset` class to a wrapper */
+.sunset {
   --background: #fff7ed;
   --foreground: #2a1407;
   --card: #ffffff;
@@ -14,7 +45,6 @@
   --radius-sm: 1rem;
   --radius-md: 1.5rem;
   --radius-lg: 2rem;
-  --radius-pill: 9999px;
 
   --shadow-card: 0 2px 4px rgba(124, 45, 18, 0.08),
     0 24px 60px -22px rgba(244, 63, 94, 0.45);

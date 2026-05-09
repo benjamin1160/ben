@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function SickOfRentingSqueeze() {
   return (
-    <div className="theme-canvas flex flex-1 flex-col">
+    <div className="sunset theme-canvas flex flex-1 flex-col">
       <header className="border-b border-border bg-card/70 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3">
           <div className="flex items-center gap-2">
