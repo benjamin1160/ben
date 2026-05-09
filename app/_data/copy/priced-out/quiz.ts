@@ -9,11 +9,11 @@ const copy: QuizCopy = {
   hook: {
     eyebrow: "60-second quiz",
     headline: "Pre-approved but priced out of every Florida home you want?",
-    sub: "Six quick questions and we'll show you which Florida homes between $50K and $150K actually fit your budget — and what the all-in payment really looks like. No bidding wars, no $300K stretches.",
+    sub: "Six quick questions and we'll show you which Florida homes between $50K and $150K actually fit your budget — and what the all-in payment really looks like. No $300K stretches, no payments you'll resent in two years.",
     trust: ["No credit pull", "No spam", "Takes about 60 seconds"],
     ctaPrimary: "Show me what fits",
     socialProof:
-      "Used by 8,400+ pre-approved Florida buyers this year who were tired of getting outbid.",
+      "Used by 8,400+ pre-approved Florida buyers this year who decided not to stretch into a payment they'd resent.",
   },
   questions: [
     {
@@ -22,7 +22,7 @@ const copy: QuizCopy = {
       helper: "Pick the one that hurts most.",
       type: "single",
       options: [
-        "Every house I like goes $30K+ over asking",
+        "Every house I like is way out of my budget",
         "I'm pre-approved but the payment is brutal",
         "I'm tired of waiting for prices to drop",
         "I refuse to bury myself in a 30-year mortgage",
@@ -96,7 +96,7 @@ const copy: QuizCopy = {
   },
   results: {
     eyebrow: "Good news",
-    headline: "There are homes in your range — without the bidding war.",
+    headline: "There are homes that actually fit your budget.",
     sub: "Based on your answers, you likely have several Florida homes between $50K and $150K that fit your budget comfortably (not at the ceiling). Drop your info below and we'll text you a real shortlist with all-in monthly payments — not teaser numbers.",
     consent:
       "By submitting, you agree to receive a text and a follow-up call about your home shortlist. Standard message rates apply. Reply STOP anytime.",
