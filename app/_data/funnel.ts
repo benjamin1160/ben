@@ -104,7 +104,7 @@ export const variations: Variation[] = [
     trigger: "A real Florida home at a price that actually works",
     buying: "The next-best-thing — affordable ownership, not a starter myth",
     state: "pain",
-    liveStyles: ["hybrid"],
+    liveStyles: ["hybrid", "quiz"],
   },
   {
     slug: "i-own-land",

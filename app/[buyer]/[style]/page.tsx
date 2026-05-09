@@ -8,6 +8,7 @@ import {
 } from "../../_data/funnel";
 import QuizFunnel from "../../_templates/QuizFunnel";
 import sickOfRentingQuiz from "../../_data/copy/sick-of-renting/quiz";
+import pricedOutQuiz from "../../_data/copy/priced-out/quiz";
 
 export async function generateStaticParams() {
   return variations.flatMap((v) =>
@@ -23,6 +24,12 @@ export async function generateMetadata({
     return {
       title: sickOfRentingQuiz.meta.title,
       description: sickOfRentingQuiz.meta.description,
+    };
+  }
+  if (buyer === "priced-out" && style === "quiz") {
+    return {
+      title: pricedOutQuiz.meta.title,
+      description: pricedOutQuiz.meta.description,
     };
   }
   const variation = findVariation(buyer);
@@ -45,6 +52,10 @@ export default async function PlaceholderPage({
 
   if (buyer === "sick-of-renting" && style === "quiz") {
     return <QuizFunnel copy={sickOfRentingQuiz} />;
+  }
+
+  if (buyer === "priced-out" && style === "quiz") {
+    return <QuizFunnel copy={pricedOutQuiz} />;
   }
 
   const groupLabel =
