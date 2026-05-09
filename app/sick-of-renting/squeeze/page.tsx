@@ -1,6 +1,5 @@
 import Link from "next/link";
 import SqueezeForm from "./SqueezeForm";
-import StyleSwitcher from "./StyleSwitcher";
 
 export const metadata = {
   title: "Stop renting. See your real Florida payment.",
@@ -10,7 +9,7 @@ export const metadata = {
 
 export default function SickOfRentingSqueeze() {
   return (
-    <StyleSwitcher>
+    <div className="theme-canvas flex flex-1 flex-col">
       <header className="border-b border-border bg-card/70 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3">
           <div className="flex items-center gap-2">
@@ -32,7 +31,7 @@ export default function SickOfRentingSqueeze() {
                 <path d="M5 10v10h14V10" />
               </svg>
             </span>
-            <span className="theme-display text-sm font-semibold tracking-tight">
+            <span className="text-sm font-semibold tracking-tight">
               Florida Home Path
             </span>
           </div>
@@ -53,7 +52,7 @@ export default function SickOfRentingSqueeze() {
                 <span className="h-2 w-2 rounded-full bg-brand" />
                 For renters tired of the rent hike letter
               </span>
-              <h1 className="theme-display mt-5 text-5xl leading-[1.05] text-foreground sm:text-6xl md:text-7xl">
+              <h1 className="mt-5 text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl">
                 Your rent could be a mortgage.
               </h1>
               <p className="mt-5 max-w-xl text-lg text-muted sm:text-xl">
@@ -137,7 +136,7 @@ export default function SickOfRentingSqueeze() {
           </div>
         </footer>
       </main>
-    </StyleSwitcher>
+    </div>
   );
 }
 
@@ -153,7 +152,9 @@ function Avatar({ className }: { className: string }) {
 function Proof({ stat, label }: { stat: string; label: string }) {
   return (
     <div className="theme-card p-5">
-      <p className="theme-display text-3xl text-brand-strong">{stat}</p>
+      <p className="text-2xl font-bold tracking-tight text-brand-strong">
+        {stat}
+      </p>
       <p
         className="mt-1 text-sm text-foreground/80"
         dangerouslySetInnerHTML={{ __html: label }}

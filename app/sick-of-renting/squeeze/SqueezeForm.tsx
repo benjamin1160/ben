@@ -47,7 +47,7 @@ export default function SqueezeForm() {
             <path d="M20 6 9 17l-5-5" />
           </svg>
         </div>
-        <h3 className="theme-display text-3xl">
+        <h3 className="text-2xl font-semibold tracking-tight">
           Got it, {data.name || "friend"}.
         </h3>
         <p className="mt-2 text-muted">
@@ -64,7 +64,7 @@ export default function SqueezeForm() {
       className="theme-card p-6 sm:p-8"
       aria-label="See what you qualify for"
     >
-      <h2 className="theme-display text-3xl sm:text-4xl">
+      <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
         See your real Florida payment.
       </h2>
       <p className="mt-2 text-sm text-muted">
