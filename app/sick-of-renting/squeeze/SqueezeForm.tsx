@@ -29,8 +29,11 @@ export default function SqueezeForm() {
 
   if (submitted) {
     return (
-      <div className="rounded-2xl border border-border bg-card p-8 shadow-sm">
-        <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand/10 text-brand">
+      <div className="theme-card p-8">
+        <div
+          className="mb-3 inline-flex h-10 w-10 items-center justify-center bg-brand/10 text-brand"
+          style={{ borderRadius: "var(--radius-pill)" }}
+        >
           <svg
             viewBox="0 0 24 24"
             fill="none"
@@ -44,7 +47,7 @@ export default function SqueezeForm() {
             <path d="M20 6 9 17l-5-5" />
           </svg>
         </div>
-        <h3 className="text-2xl font-semibold tracking-tight">
+        <h3 className="theme-display text-3xl">
           Got it, {data.name || "friend"}.
         </h3>
         <p className="mt-2 text-muted">
@@ -58,10 +61,10 @@ export default function SqueezeForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="rounded-2xl border border-border bg-card p-6 shadow-sm sm:p-8"
+      className="theme-card p-6 sm:p-8"
       aria-label="See what you qualify for"
     >
-      <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
+      <h2 className="theme-display text-3xl sm:text-4xl">
         See your real Florida payment.
       </h2>
       <p className="mt-2 text-sm text-muted">
@@ -79,7 +82,8 @@ export default function SqueezeForm() {
             autoComplete="given-name"
             value={data.name}
             onChange={(e) => update("name", e.target.value)}
-            className="mt-1 w-full rounded-xl border border-border bg-card px-4 py-3 text-base text-foreground outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20"
+            className="mt-1 w-full border border-border bg-card px-4 py-3 text-base text-foreground outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20"
+            style={{ borderRadius: "var(--radius-md)" }}
             placeholder="Alex"
           />
         </label>
@@ -93,7 +97,8 @@ export default function SqueezeForm() {
             autoComplete="tel"
             value={data.phone}
             onChange={(e) => update("phone", e.target.value)}
-            className="mt-1 w-full rounded-xl border border-border bg-card px-4 py-3 text-base text-foreground outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20"
+            className="mt-1 w-full border border-border bg-card px-4 py-3 text-base text-foreground outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20"
+            style={{ borderRadius: "var(--radius-md)" }}
             placeholder="(555) 555-0123"
           />
         </label>
@@ -105,7 +110,8 @@ export default function SqueezeForm() {
             required
             value={data.rent}
             onChange={(e) => update("rent", e.target.value)}
-            className="mt-1 w-full rounded-xl border border-border bg-card px-4 py-3 text-base text-foreground outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20"
+            className="mt-1 w-full border border-border bg-card px-4 py-3 text-base text-foreground outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20"
+            style={{ borderRadius: "var(--radius-md)" }}
           >
             <option value="" disabled>
               Choose a range…
@@ -120,7 +126,7 @@ export default function SqueezeForm() {
 
       <button
         type="submit"
-        className="mt-6 inline-flex w-full items-center justify-center rounded-xl bg-brand px-6 py-4 text-base font-semibold text-white shadow-sm transition hover:bg-brand-strong"
+        className="theme-cta mt-6 inline-flex w-full items-center justify-center px-6 py-4 text-base font-semibold"
       >
         Show me my payment
       </button>

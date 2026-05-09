@@ -32,12 +32,17 @@ export default function StyleSwitcher({
     window.localStorage.setItem(STORAGE_KEY, id);
   }
 
+  const activeLabel = THEMES.find((t) => t.id === theme)?.label ?? "Coastal";
+
   return (
     <div
       data-theme={theme === "coastal" ? undefined : theme}
-      className="flex flex-1 flex-col"
+      className="theme-canvas flex flex-1 flex-col"
     >
-      <div className="fixed bottom-4 right-4 z-50 flex items-center gap-1 rounded-full border border-border bg-card/95 p-1 shadow-lg backdrop-blur">
+      <div className="fixed bottom-4 right-4 z-50 flex items-center gap-2 rounded-full border border-border bg-card/95 p-1.5 shadow-lg backdrop-blur">
+        <span className="hidden px-2 text-xs font-semibold uppercase tracking-wider text-muted sm:inline">
+          {activeLabel}
+        </span>
         {THEMES.map((t) => {
           const active = t.id === theme;
           return (
@@ -47,15 +52,13 @@ export default function StyleSwitcher({
               onClick={() => pick(t.id)}
               aria-label={`Switch to ${t.label} theme`}
               aria-pressed={active}
-              className={`relative h-8 w-8 rounded-full transition ${
-                active
-                  ? "ring-2 ring-offset-2 ring-offset-card"
-                  : "opacity-70 hover:opacity-100"
-              }`}
+              className="relative h-8 w-8 rounded-full transition hover:scale-110"
               style={{
                 backgroundColor: t.swatch,
-                // ring-color via inline style so it matches the swatch
-                boxShadow: active ? `0 0 0 2px ${t.swatch}` : undefined,
+                boxShadow: active
+                  ? `0 0 0 2px var(--card), 0 0 0 4px ${t.swatch}`
+                  : undefined,
+                opacity: active ? 1 : 0.65,
               }}
               title={t.label}
             />
