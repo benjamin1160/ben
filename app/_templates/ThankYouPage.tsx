@@ -170,7 +170,7 @@ export default function ThankYouPage({
           </div>
         </section>
 
-        <ShellFooter brand={brand} />
+        <ShellFooter brand={brand} styleSlug="thank-you" />
       </main>
     </div>
   );

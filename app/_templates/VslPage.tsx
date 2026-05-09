@@ -121,7 +121,7 @@ export default function VslPage({
           </div>
         </section>
 
-        <ShellFooter brand={brand} />
+        <ShellFooter brand={brand} styleSlug="vsl" />
       </main>
     </div>
   );

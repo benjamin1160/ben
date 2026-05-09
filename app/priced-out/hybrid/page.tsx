@@ -529,6 +529,15 @@ export default function PricedOutHybrid() {
               Payment examples are illustrative and depend on credit,
               location, and home choice. Equal housing opportunity.
             </p>
+
+            <a
+                href="https://github.com/benjamin1160/ben/tree/main/app/priced-out/hybrid"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 font-medium text-slate-700 underline-offset-2 hover:text-slate-900 hover:underline"
+              >
+                Grab this template ↗
+              </a>
           </div>
         </footer>
       </main>

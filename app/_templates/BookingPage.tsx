@@ -100,7 +100,7 @@ export default function BookingPage({
           </div>
         </section>
 
-        <ShellFooter brand={brand} />
+        <ShellFooter brand={brand} styleSlug="booking" />
       </main>
     </div>
   );

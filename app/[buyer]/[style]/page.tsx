@@ -6,9 +6,6 @@ import {
   pageStyles,
   variations,
 } from "../../_data/funnel";
-import QuizFunnel from "../../_templates/QuizFunnel";
-import sickOfRentingQuiz from "../../_data/copy/sick-of-renting/quiz";
-import pricedOutQuiz from "../../_data/copy/priced-out/quiz";
 
 export async function generateStaticParams() {
   // Only emit static params for combos that DON'T have an explicit page.
@@ -25,18 +22,6 @@ export async function generateMetadata({
   params,
 }: PageProps<"/[buyer]/[style]">) {
   const { buyer, style } = await params;
-  if (buyer === "sick-of-renting" && style === "quiz") {
-    return {
-      title: sickOfRentingQuiz.meta.title,
-      description: sickOfRentingQuiz.meta.description,
-    };
-  }
-  if (buyer === "priced-out" && style === "quiz") {
-    return {
-      title: pricedOutQuiz.meta.title,
-      description: pricedOutQuiz.meta.description,
-    };
-  }
   const variation = findVariation(buyer);
   const pageStyle = findPageStyle(style);
   if (!variation || !pageStyle) return {};
@@ -54,14 +39,6 @@ export default async function PlaceholderPage({
   const pageStyle = findPageStyle(style);
 
   if (!variation || !pageStyle) notFound();
-
-  if (buyer === "sick-of-renting" && style === "quiz") {
-    return <QuizFunnel copy={sickOfRentingQuiz} />;
-  }
-
-  if (buyer === "priced-out" && style === "quiz") {
-    return <QuizFunnel copy={pricedOutQuiz} />;
-  }
 
   const groupLabel =
     pageStyle.group === "entry"
