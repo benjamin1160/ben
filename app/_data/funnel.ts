@@ -115,7 +115,7 @@ export const variations: Variation[] = [
     trigger: "A clear next move",
     buying: "Clarity + execution",
     state: "aspiration",
-    liveStyles: [],
+    liveStyles: ["hybrid", "quiz", "squeeze", "vsl", "bridge", "application", "thank-you", "booking"],
   },
   {
     slug: "land-and-home",
@@ -126,7 +126,7 @@ export const variations: Variation[] = [
     trigger: "Step-by-step plan",
     buying: "Clear step-by-step plan",
     state: "aspiration",
-    liveStyles: [],
+    liveStyles: ["hybrid", "quiz", "squeeze", "vsl", "bridge", "application", "thank-you", "booking"],
   },
   {
     slug: "family-home",
@@ -137,7 +137,7 @@ export const variations: Variation[] = [
     trigger: "A better life for the kids",
     buying: "Better life for family",
     state: "aspiration",
-    liveStyles: [],
+    liveStyles: ["hybrid", "quiz", "squeeze", "vsl", "bridge", "application", "thank-you", "booking"],
   },
   {
     slug: "retiree-downsize",
@@ -148,7 +148,7 @@ export const variations: Variation[] = [
     trigger: "Simplicity, no surprises",
     buying: "Simplicity + security",
     state: "aspiration",
-    liveStyles: [],
+    liveStyles: ["hybrid", "quiz", "squeeze", "vsl", "bridge", "application", "thank-you", "booking"],
   },
   {
     slug: "need-it-now",
@@ -159,7 +159,7 @@ export const variations: Variation[] = [
     trigger: "Move-in date, fast",
     buying: "Immediate solution",
     state: "pain",
-    liveStyles: [],
+    liveStyles: ["hybrid", "quiz", "squeeze", "vsl", "bridge", "application", "thank-you", "booking"],
   },
   {
     slug: "investor",
@@ -170,7 +170,7 @@ export const variations: Variation[] = [
     trigger: "Cap rate / cash-on-cash",
     buying: "Cash flow / returns",
     state: "pain",
-    liveStyles: [],
+    liveStyles: ["hybrid", "quiz", "squeeze", "vsl", "bridge", "application", "thank-you", "booking"],
   },
   {
     slug: "skeptical-buyer",
@@ -181,7 +181,7 @@ export const variations: Variation[] = [
     trigger: "Receipts, references, no fluff",
     buying: "Trust",
     state: "aspiration",
-    liveStyles: [],
+    liveStyles: ["hybrid", "quiz", "squeeze", "vsl", "bridge", "application", "thank-you", "booking"],
   },
   {
     slug: "first-generation",
@@ -192,7 +192,7 @@ export const variations: Variation[] = [
     trigger: "The dream, made concrete",
     buying: "Ownership / American dream",
     state: "aspiration",
-    liveStyles: [],
+    liveStyles: ["hybrid", "quiz", "squeeze", "vsl", "bridge", "application", "thank-you", "booking"],
   },
 ];
 

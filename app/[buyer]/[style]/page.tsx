@@ -11,8 +11,13 @@ import sickOfRentingQuiz from "../../_data/copy/sick-of-renting/quiz";
 import pricedOutQuiz from "../../_data/copy/priced-out/quiz";
 
 export async function generateStaticParams() {
+  // Only emit static params for combos that DON'T have an explicit page.
+  // Live styles have their own /<scenario>/<style>/page.tsx which takes
+  // precedence; including them here would collide at build time.
   return variations.flatMap((v) =>
-    pageStyles.map((s) => ({ buyer: v.slug, style: s.slug })),
+    pageStyles
+      .filter((s) => !v.liveStyles.includes(s.slug))
+      .map((s) => ({ buyer: v.slug, style: s.slug })),
   );
 }
 
