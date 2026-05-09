@@ -114,7 +114,7 @@ export default function BridgePage({
           </div>
         </section>
 
-        <ShellFooter brand={brand} />
+        <ShellFooter brand={brand} styleSlug="bridge" />
       </main>
     </div>
   );

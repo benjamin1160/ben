@@ -319,7 +319,7 @@ export default function HybridPage({
           </div>
         </section>
 
-        <ShellFooter brand={brand} />
+        <ShellFooter brand={brand} styleSlug="hybrid" />
       </main>
     </div>
   );

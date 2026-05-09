@@ -71,7 +71,7 @@ export default function ApplicationPage({
           </div>
         </section>
 
-        <ShellFooter brand={brand} />
+        <ShellFooter brand={brand} styleSlug="application" />
       </main>
     </div>
   );

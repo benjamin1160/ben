@@ -72,7 +72,7 @@ export default function SqueezePage({
           </div>
         </section>
 
-        <ShellFooter brand={brand} />
+        <ShellFooter brand={brand} styleSlug="squeeze" />
       </main>
     </div>
   );
