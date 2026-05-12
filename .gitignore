@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# generated standalone templates keep their source but never their installs
+templates/**/node_modules
+templates/**/.next
+templates/**/out
+templates/**/build
