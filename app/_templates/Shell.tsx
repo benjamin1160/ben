@@ -56,12 +56,21 @@ export function ShellHeader({
 
 const REPO = "benjamin1160/ben";
 
-function sourcePath(scenarioSlug: string, styleSlug: string) {
-  // Page wrapper is at /app/<scenario>/<style>/page.tsx; the actual layout
-  // lives in the matching template under /app/_templates/. We link to a
-  // GitHub search query that surfaces both, so visitors land on the wrapper
-  // and the template in one click.
-  return `https://github.com/${REPO}/tree/main/app/${scenarioSlug}/${styleSlug}`;
+function templateFileName(styleSlug: string) {
+  return (
+    styleSlug
+      .split("-")
+      .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+      .join("") + "Page.tsx"
+  );
+}
+
+function sourcePath(styleSlug: string) {
+  // The per-scenario page.tsx is just a thin wrapper that binds copy + brand
+  // to the shared layout in /app/_templates/<Style>Page.tsx. Link straight to
+  // that layout file — the wrapper folder is one trivial re-export and used
+  // to render as a near-empty GitHub page.
+  return `https://github.com/${REPO}/blob/main/app/_templates/${templateFileName(styleSlug)}`;
 }
 
 export function ShellFooter({
@@ -71,9 +80,7 @@ export function ShellFooter({
   brand: ScenarioBrand;
   styleSlug?: string;
 }) {
-  const grabHref = styleSlug
-    ? sourcePath(brand.scenarioSlug, styleSlug)
-    : null;
+  const grabHref = styleSlug ? sourcePath(styleSlug) : null;
   return (
     <footer className="border-t border-border bg-white">
       <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-3 px-5 py-8 text-xs text-muted sm:flex-row sm:items-center">
