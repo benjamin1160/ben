@@ -5,6 +5,8 @@ import { notFound } from "next/navigation";
 import { pageStyles, variations } from "../../../_data/funnel";
 import CopyButton from "./CopyButton";
 
+const REPO_URL = "https://github.com/benjamin1160/ben";
+
 const APP_DIR = path.join(process.cwd(), "app");
 const APP_PREFIX = "app/";
 
@@ -151,15 +153,27 @@ export default async function GrabPage({
           </span>
         </h1>
         <p className="mt-3 text-base text-muted">
-          {variation.name} · {pageStyle.name}. Every relative-imported file the
-          page touches, in dependency order. Drop them into your own Next.js
-          app at the same paths.
+          {variation.name} · {pageStyle.name}. A standalone, deployable Next.js
+          project lives at{" "}
+          <code className="font-mono text-slate-700">
+            templates/{scenario}-{style}
+          </code>{" "}
+          in this repo.
+        </p>
+
+        <DeployBox scenario={scenario} style={style} />
+
+        <h2 className="mt-12 text-lg font-semibold tracking-tight text-slate-900">
+          Or copy the files yourself
+        </h2>
+        <p className="mt-2 text-sm text-muted">
+          Every relative-imported file the page touches, in dependency order.
         </p>
         <p className="mt-2 font-mono text-xs text-muted">
           {files.length} files · {totalLines.toLocaleString()} lines
         </p>
 
-        <ol className="mt-6 grid gap-1 text-xs text-muted sm:grid-cols-2">
+        <ol className="mt-4 grid gap-1 text-xs text-muted sm:grid-cols-2">
           {files.map((f) => (
             <li key={f.path}>
               <a
@@ -172,7 +186,7 @@ export default async function GrabPage({
           ))}
         </ol>
 
-        <div className="mt-10 space-y-6">
+        <div className="mt-8 space-y-6">
           {files.map((f) => (
             <FileBlock key={f.path} file={f} />
           ))}
@@ -203,5 +217,65 @@ function FileBlock({ file }: { file: SourceFile }) {
         <code>{file.content}</code>
       </pre>
     </section>
+  );
+}
+
+function DeployBox({ scenario, style }: { scenario: string; style: string }) {
+  const subfolder = `templates/${scenario}-${style}`;
+  const githubUrl = `${REPO_URL}/tree/main/${subfolder}`;
+  const deployUrl = `https://vercel.com/new/clone?repository-url=${encodeURIComponent(
+    REPO_URL,
+  )}&root-directory=${encodeURIComponent(subfolder)}&project-name=${encodeURIComponent(
+    `${scenario}-${style}`,
+  )}`;
+  return (
+    <div className="mt-8 rounded-2xl border border-border bg-surface p-5 shadow-sm">
+      <p className="text-xs font-semibold uppercase tracking-wider text-brand-strong">
+        Deploy as its own site
+      </p>
+      <p className="mt-1 text-sm text-slate-700">
+        Click the button to clone this template into your own GitHub account
+        and deploy it on Vercel, siloed from the rest.
+      </p>
+      <div className="mt-4 flex flex-wrap items-center gap-3">
+        <a
+          href={deployUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800"
+        >
+          <VercelMark />
+          Deploy on Vercel
+        </a>
+        <a
+          href={githubUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1 text-sm font-medium text-slate-700 underline-offset-2 hover:text-slate-900 hover:underline"
+        >
+          View on GitHub
+          <span aria-hidden>↗</span>
+        </a>
+      </div>
+      <p className="mt-3 text-xs text-muted">
+        Prefer pasting? Use{" "}
+        <code className="font-mono text-slate-700">{REPO_URL}</code> as the
+        repo URL and set Root Directory to{" "}
+        <code className="font-mono text-slate-700">{subfolder}</code>.
+      </p>
+    </div>
+  );
+}
+
+function VercelMark() {
+  return (
+    <svg
+      viewBox="0 0 76 65"
+      aria-hidden="true"
+      className="h-3.5 w-3.5"
+      fill="currentColor"
+    >
+      <path d="M37.5274 0L75.0548 65H0L37.5274 0Z" />
+    </svg>
   );
 }
